@@ -3,13 +3,19 @@
     <% @posts.each do |post| %>
     <li>
         <p>
-            <%= link_to post.title, post_path(post) %> created by <%= post.user.login %>
+            <%= link_to post.title, post_path(post) %> created by <%= post.user %>
         </p>
-    </li>
     <span>
         Post has <%= pluralize post.comments.count, 'comment' %>
     </span>
+    <span>
+        <%= link_to "edit post", edit_post_path(post) %>
+    </span>
+    <span>
+        <%= link_to "delete post", post_path(post), method: :delete,confirm: 'Are you sure?' %>
+    </span>
+    </li>
     <% end %>
 </ul>
 
-<%= link_to "create post", new_post_path %>
+<%= link_to "Create post", new_post_path %>

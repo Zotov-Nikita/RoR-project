@@ -8,6 +8,16 @@
 </head>
 <body>
 <%= flash[:notice] %>
+
+<% if user_signed_in? %>
+	<p> Hello, <%= current_user.full_name %> </p>
+	<%= link_to 'Sigh out', destroy_user_session_path, method:'delete' %>
+<% else %>
+	<%= link_to 'Sigh in', new_user_session_path %> or 
+	<%= link_to 'Sigh up', new_user_registration_path %>
+<% end %>
+
+
 <%= yield %>
 
 </body>
