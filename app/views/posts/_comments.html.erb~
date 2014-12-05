@@ -7,7 +7,7 @@
        <div>
         <%= comment.message %>
        </div>
-	<%= comment.author_name %>
+	<%= comment.user.author_name %>
     </li>
     <% end %>
 </ul>
